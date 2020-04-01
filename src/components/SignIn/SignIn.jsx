@@ -5,10 +5,10 @@ const SignIn = ({ onRouteChange, loadUser }) => {
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
 
-  const onEmailChange = event => {
+  const onEmailChange = (event) => {
     setSignInEmail(event.target.value);
   };
-  const onPasswordChange = event => {
+  const onPasswordChange = (event) => {
     setSignInPassword(event.target.value);
   };
   const onSubmitSignIn = () => {
@@ -17,10 +17,10 @@ const SignIn = ({ onRouteChange, loadUser }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: signInEmail,
-        password: signInPassword
-      })
+        password: signInPassword,
+      }),
     })
-      .then(response => response.json())
+      .then((response) => response.json())
       // .then(data => {
       //   // console.log(data, "success", data.toString() === "success");
       //   if (data[0].trim() === "success") {
@@ -28,7 +28,7 @@ const SignIn = ({ onRouteChange, loadUser }) => {
       //     onRouteChange("home");
       //   }
       // });
-      .then(user => {
+      .then((user) => {
         // console.log(data, "success", data.toString() === "success");
         if (user.id) {
           loadUser(user);

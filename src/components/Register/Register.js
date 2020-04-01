@@ -5,14 +5,14 @@ const Register = ({ onRouteChange, loadUser }) => {
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerName, setRegisterName] = useState("");
 
-  const onEmailChange = event => {
+  const onEmailChange = (event) => {
     setRegisterEmail(event.target.value);
   };
-  const onPasswordChange = event => {
+  const onPasswordChange = (event) => {
     setRegisterPassword(event.target.value);
   };
 
-  const onNameChange = event => {
+  const onNameChange = (event) => {
     setRegisterName(event.target.value);
   };
 
@@ -23,11 +23,11 @@ const Register = ({ onRouteChange, loadUser }) => {
       body: JSON.stringify({
         email: registerEmail,
         password: registerPassword,
-        name: registerName
-      })
+        name: registerName,
+      }),
     })
-      .then(response => response.json())
-      .then(user => {
+      .then((response) => response.json())
+      .then((user) => {
         console.log(user, "test");
         // console.log(data, "success", data.toString() === "success");
         if (user) {
@@ -49,6 +49,7 @@ const Register = ({ onRouteChange, loadUser }) => {
               </label>
               <input
                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                style={{ "box-sizing": "border-box" }}
                 type="name"
                 name="name"
                 id="name"
@@ -72,7 +73,7 @@ const Register = ({ onRouteChange, loadUser }) => {
                 Password
               </label>
               <input
-                className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="password"
                 name="password"
                 id="password"

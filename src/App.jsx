@@ -14,7 +14,7 @@ import SignIn from "./components/SignIn/SignIn";
 import Register from "./components/Register/Register";
 
 const app = new Clarifai.App({
-  apiKey: "0917a244585b40baba3c9b5ba97575de"
+  apiKey: "0917a244585b40baba3c9b5ba97575de",
 });
 
 function App() {
@@ -32,22 +32,22 @@ function App() {
     email: "",
     password: "",
     entries: 0,
-    joined: ""
+    joined: "",
   });
 
   // INPUT
-  const onInputChange = event => {
+  const onInputChange = (event) => {
     setInput(event.target.value);
     // console.log(input);
   };
 
   // Make user
-  const loadUser = data => {
+  const loadUser = (data) => {
     setUser(data);
   };
 
   // CALCULATE FACE LOCATION
-  const calculateFaceLocation = data => {
+  const calculateFaceLocation = (data) => {
     // console.log(data, "data");
     const clarifaiFace =
       data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -59,12 +59,12 @@ function App() {
       leftCol: clarifaiFace.left_col * width,
       topRow: clarifaiFace.top_row * height,
       rightCol: width - clarifaiFace.right_col * width,
-      bottomRow: height - clarifaiFace.bottom_row * height
+      bottomRow: height - clarifaiFace.bottom_row * height,
     };
   };
 
   // Display Box Around Faces
-  const displayFaceBox = boxData => {
+  const displayFaceBox = (boxData) => {
     // console.
     setFaceBox({ ...boxData });
     console.log(faceBox, boxData, "test");
@@ -77,7 +77,7 @@ function App() {
   // }, []);
 
   // Route
-  const onRouteChange = newRoute => {
+  const onRouteChange = (newRoute) => {
     // setRoute(newRoute);
     if (newRoute === "signin") {
       setIsSignedIn(false);
@@ -133,11 +133,11 @@ function App() {
         fetch("http://localhost:3000/image ", {
           method: "put",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id: user.id })
+          body: JSON.stringify({ id: user.id }),
           // body: { id: user.id }
         })
-          .then(res => res.json())
-          .then(count =>
+          .then((res) => res.json())
+          .then((count) =>
             // console.log(count)
             setUser(
               { ...user, entries: count }
@@ -145,7 +145,7 @@ function App() {
             )
           )
       )
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -156,7 +156,7 @@ function App() {
 
       {route === "home" ? (
         <div>
-          <Logo />
+          {/* <Logo /> */}
           <Rank entries={user.entries} name={user.name} />
           <ImageLinkForm
             onInputChange={onInputChange}
