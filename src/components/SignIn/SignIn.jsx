@@ -1,5 +1,13 @@
 import React from "react";
 import { useState } from "react";
+import firebase from "firebase";
+
+//WIP
+var provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+export const signInWithGoogle = () => firebase.auth.signInWithPopup(provider);
+
+console.log("signin", provider);
 
 const SignIn = ({ onRouteChange, loadUser }) => {
   const [signInEmail, setSignInEmail] = useState("");
@@ -80,9 +88,11 @@ const SignIn = ({ onRouteChange, loadUser }) => {
           <div className="lh-copy mt3">
             <p
               className="f6 link dim black db pointer"
-              onClick={() => onRouteChange("register")}
+              style={{ border: "1px solid" }}
+              onClick={() => onRouteChange("home")}
+              // onClick={signInWithGoogle}
             >
-              Register{" "}
+              Try without login
             </p>
           </div>
         </div>

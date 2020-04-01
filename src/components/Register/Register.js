@@ -89,6 +89,15 @@ const Register = ({ onRouteChange, loadUser }) => {
               value="Register"
             />
           </div>
+          <div className="lh-copy mt3">
+            <p
+              className="f6 link dim black db pointer"
+              style={{ border: "1px solid" }}
+              onClick={() => onRouteChange("home")}
+            >
+              Try without login
+            </p>
+          </div>
         </div>
       </main>
     </article>

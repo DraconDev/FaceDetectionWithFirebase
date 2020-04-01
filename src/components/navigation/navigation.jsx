@@ -6,15 +6,19 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
       <nav
         style={{
           display: "flex",
-          justifyContent: "flex-end"
+          justifyContent: "flex-end",
         }}
       >
         <p
           className="f3 link dim black underline pa3 pointer"
+          style={{
+            "text-decoration": "none",
+            "margin-right": "25px",
+          }}
           // onClick={() => onRouteChange("signin")}
           onClick={() => onRouteChange("signin")}
         >
-          Sign Out
+          Home
         </p>
       </nav>
     );
@@ -23,18 +27,19 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
       <nav
         style={{
           display: "flex",
-          justifyContent: "flex-end"
+          justifyContent: "flex-end",
         }}
       >
-        <p
+        {/* <p
           className="f3 link dim black underline pa3 pointer"
           // onClick={() => onRouteChange("signin")}
           onClick={() => onRouteChange("home")}
         >
           Try
-        </p>
+        </p> */}
         <p
           className="f3 link dim black underline pa3 pointer"
+          style={{ "text-decoration": "none" }}
           // onClick={() => onRouteChange("signin")}
           onClick={() => onRouteChange("register")}
         >
